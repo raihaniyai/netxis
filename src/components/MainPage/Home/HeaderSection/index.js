@@ -1,5 +1,5 @@
 import React from 'react';
-import { StarOutlined, BellOutlined, WalletOutlined, LogoutOutlined } from '@ant-design/icons';
+import { StarOutlined, BellOutlined, MoneyCollectOutlined, LogoutOutlined } from '@ant-design/icons';
 import {
   Balance,
   BalanceContainer,
@@ -20,7 +20,7 @@ const HeaderSection = () => {
       <div className={Header}>
         <div>
           <div className={Welcome}>Welcome,</div>
-          <div className={Username}>John Doe</div> 
+          <div className={Username}>Dharmawan Santosa</div> 
         </div>
 
         <div>
@@ -37,7 +37,7 @@ const HeaderSection = () => {
 
         <div className={BalanceAction}>
           <LogoutOutlined className={RotateIcon} />
-          <WalletOutlined className={BalanceIcon} />
+          <MoneyCollectOutlined className={BalanceIcon} />
         </div>
       </div>
     </>
