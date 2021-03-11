@@ -8,17 +8,12 @@ export const Header = css`
 `;
 
 export const Icon = css`
-  margin-left: 8px;
+  margin-left: 32px;
   font-size: 24px;
 `;
 
 export const RotateIcon = css`
   transform: rotate(-90deg);
-  font-size: 24px;
-`;
-
-export const BalanceIcon = css`
-  margin-left: 32px;
   font-size: 24px;
 `;
 

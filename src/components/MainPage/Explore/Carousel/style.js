@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { N0 } from 'unify-token/build/v2/colors';
 
 export const ContentsContainer = css`
-  margin-top: 16px;
+  margin: 16px 0;
   overflow-y: auto;
 
   ::-webkit-scrollbar {

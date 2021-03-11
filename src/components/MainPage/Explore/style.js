@@ -12,7 +12,7 @@ export const Title = css`
 `;
 
 export const CategoriesContainer = css`
-  margin-top: 16px;
+  margin: 16px 0;
   overflow-y: auto;
 
   ::-webkit-scrollbar {
@@ -34,5 +34,6 @@ export const InputStyle = css`
   background: ${N0};
   border-radius: 8px;
   box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.08), 4px 8px 24px rgba(0, 0, 0, 0.025);
-  margin: 8px 0;
+  margin-top: 8px;
+  margin-bottom: 16px;
 `;
