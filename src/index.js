@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
+
+import Home from './components/Home';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/app" component={App} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
