@@ -5,7 +5,6 @@ import {
   BalanceContainer,
   BalanceAction,
   BalanceDescription,
-  BalanceIcon,
   Header,
   Icon,
   RotateIcon,
@@ -37,7 +36,7 @@ const HeaderSection = () => {
 
         <div className={BalanceAction}>
           <LogoutOutlined className={RotateIcon} />
-          <MoneyCollectOutlined className={BalanceIcon} />
+          <MoneyCollectOutlined className={Icon} />
         </div>
       </div>
     </>
