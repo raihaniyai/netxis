@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { GlobalProvider } from './contexts/GlobalContext';
 import './index.css';
 
-import Home from './components/Home';
+import MainPage from './components/MainPage';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/app" component={App} />
-    </Switch>
+    <GlobalProvider>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/app" component={App} />
+      </Switch>
+    </GlobalProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

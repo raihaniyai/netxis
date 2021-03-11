@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N100, N400, N500 } from 'unify-token/build/v2/colors';
+import { N0, N200, N400, N500 } from 'unify-token/build/v2/colors';
 
 export const Container = css`
   width: -webkit-fill-available;
@@ -23,10 +23,11 @@ export const OptionIcon = css`
   align-items: center;
   height: 48px;
   width: 48px;
-  background: ${N100};
+  background: ${N200};
   border-radius: 15px;
   text-align: center;
   font-size: 24px;
+  color: ${N0};
 `;
 
 export const Option = css`

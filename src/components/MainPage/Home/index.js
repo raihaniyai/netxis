@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderSection from './HeaderSection';
 import BodySection from './BodySection';
-import Navbar from './../NavigationBar';
 import { Container } from './style';
 
 const Home = () => {
@@ -11,8 +10,6 @@ const Home = () => {
         <HeaderSection />
         <BodySection />
       </div>
-      
-      <Navbar />
     </>
   )
 }
