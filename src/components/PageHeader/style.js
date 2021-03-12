@@ -6,6 +6,7 @@ export const TitleContainer = css`
   background: ${N600};
   color: ${N0};
   font-size: 18px;
+  padding: 5% 5% 0 5%;
 `;
   
 export const TitleStyle = css`

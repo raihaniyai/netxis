@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Row, Col } from 'antd';
 import GlobalContext from './../../contexts/GlobalContext';
 import Home from './Home';
 import Explore from './Explore';
@@ -31,12 +32,14 @@ const MainPage = () => {
       default:
         break;
     }
-  }, [activeMenu])
+  }, [activeMenu]);
 
 
   return (
     <>
-      {content}
+      <Row justify="center">
+        <Col xs={24} md={12}>{content}</Col>
+      </Row>
       <Navbar />
     </>
   )
