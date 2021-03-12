@@ -22,7 +22,7 @@ const Explore = () => {
         ))}
       </Row>
 
-      <Input className={InputStyle} placeholder="Search" prefix={<SearchOutlined />} bordered={false} />
+      <Input className={InputStyle} placeholder="Search" prefix={<SearchOutlined />} bordered />
 
       <Carousel />
       

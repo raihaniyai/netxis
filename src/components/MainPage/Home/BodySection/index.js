@@ -1,5 +1,4 @@
 import React from 'react';
-import { Space } from 'antd';
 import Deal from './Deal';
 import Category from './Category';
 
@@ -8,7 +7,6 @@ const BodySection = () => {
     <>
       <Category />
       <Deal />
-      <Space />
     </>
   )
 }

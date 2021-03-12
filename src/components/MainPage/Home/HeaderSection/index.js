@@ -14,13 +14,13 @@ import {
   Welcome,
 } from './style'
 
-const HeaderSection = () => {
+const HeaderSection = ({ user }) => {
   return (
     <>
       <div className={Header}>
         <div>
           <div className={Welcome}>Welcome,</div>
-          <div className={Username}>Dharmawan Santosa</div> 
+          <div className={Username}>{user.name}</div> 
         </div>
 
         <div>
@@ -31,7 +31,7 @@ const HeaderSection = () => {
 
       <div className={WalletContainer}>
         <div className={BalanceContainer}>
-          <div className={Balance}>$235.90</div>
+          <div className={Balance}>{user.balance}</div>
           <div className={BalanceDescription}>Netxis Balance</div> 
         </div>
 

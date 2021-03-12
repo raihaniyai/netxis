@@ -31,7 +31,6 @@ export const Category = css`
 `;
 
 export const InputStyle = css`
-  background: ${N0};
   border-radius: 8px;
   box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.08), 4px 8px 24px rgba(0, 0, 0, 0.025);
   margin: 8px 0;

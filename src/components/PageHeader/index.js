@@ -8,7 +8,7 @@ const PageHeader = ({ title, onBack }) => {
       <div><ArrowLeftOutlined onClick={onBack} /></div>
       <div className={TitleStyle}>{title}</div>
     </div>
-  )
+  );
 };
 
 export default PageHeader;
