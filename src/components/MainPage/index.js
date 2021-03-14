@@ -38,7 +38,9 @@ const MainPage = () => {
   return (
     <>
       <Row justify="center">
-        <Col xs={24} md={12}>{content}</Col>
+        <Col xs={24} md={12}>
+            {content}
+        </Col>
       </Row>
       <Navbar />
     </>

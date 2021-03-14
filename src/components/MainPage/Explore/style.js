@@ -4,6 +4,7 @@ import { N0 } from 'unify-token/build/v2/colors';
 export const Container = css`
   padding: 5% 5% 0 5%;
   height: 100%;
+  background: #F3F4F5;
 `;
 
 export const Title = css`
@@ -22,7 +23,7 @@ export const CategoriesContainer = css`
 `;
 
 export const Category = css`
-  background: #8E97FD;
+  background: #404EFB;
   border-radius: 36px;
   color: ${N0};
   padding: 4px 12px;

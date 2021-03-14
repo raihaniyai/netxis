@@ -4,12 +4,12 @@ export const ContentList = [
   {
     id: 1,
     title: 'AR as the Saviour of In-Store Shopping During the Pandemic',
-    img: 'https://images.pexels.com/photos/3800023/pexels-photo-3800023.jpeg',
+    img: 'images/ar-shop.png',
   },
   {
     id: 2,
     title: 'The future of monetization with 5G in healthcare',
-    img: 'https://images.pexels.com/photos/6770712/pexels-photo-6770712.jpeg',
+    img: 'images/5g-health.png',
   },
 ];
 

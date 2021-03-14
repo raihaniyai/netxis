@@ -10,20 +10,24 @@ export const Header = css`
 export const Icon = css`
   margin-left: 32px;
   font-size: 24px;
+  color: ${N0};
 `;
 
 export const RotateIcon = css`
   transform: rotate(-90deg);
   font-size: 24px;
+  color: #1E1E3F;
 `;
 
 export const Welcome = css`
   font-size: 14px;
+  color: ${N0};
 `;
 
 export const Username = css`
   font-size: 18px;
   font-weight: 600;
+  color: ${N0};
 `;
 
 export const WalletContainer = css`
@@ -36,7 +40,7 @@ export const WalletContainer = css`
   margin: 24px 0 12px 0;
   justify-content: space-between;
   display: inline-blocks;
-  box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.025), 4px 8px 24px rgba(0, 0, 0, 0.025);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 `;
 
 export const BalanceContainer = css`

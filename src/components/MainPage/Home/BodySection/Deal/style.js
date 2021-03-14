@@ -5,11 +5,11 @@ export const Container = css`
   width: -webkit-fill-available;
   background: ${N0};
   border-radius: 20px;
-  margin: 12px 0 120px 0;
+  margin: 12px 0 30px 0;
   display: inline-block;
   padding: 16px;
-  padding-bottom: 32px;
-  box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.025), 4px 8px 24px rgba(0, 0, 0, 0.025);
+  padding-bottom: 40px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 `;
 
 export const Header = css`
@@ -21,4 +21,10 @@ export const Title = css`
   font-weight: 600;
   color: ${N400};
   margin-bottom: 16px;
+`;
+
+export const Thumbnail = css`
+  width: 100%;
+  object-fit: cover;
+  padding: 1% 2%;
 `;

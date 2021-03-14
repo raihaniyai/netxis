@@ -8,7 +8,7 @@ export const TrendingWrapper = css`
   padding: 8px 16px;
   border-radius: 12px;
   align-items: center;
-  box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.025), 4px 8px 24px rgba(0, 0, 0, 0.025);
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
 `;
 
 export const ListStyle = css`
@@ -22,7 +22,7 @@ export const ListStyle = css`
 `;
 
 export const TrendingOrder = css`
-  background: #8E97FD;
+  background: #404EFB;
   height: 24px;
   width: 100px;
   max-width: 24px;

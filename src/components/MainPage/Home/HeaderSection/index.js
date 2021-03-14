@@ -36,7 +36,7 @@ const HeaderSection = ({ user }) => {
 
         <div className={BalanceAction}>
           <LogoutOutlined className={RotateIcon} />
-          <MoneyCollectOutlined className={Icon} />
+          <MoneyCollectOutlined className={Icon} style={{color: "#1E1E3F"}}/>
         </div>
       </div>
     </>

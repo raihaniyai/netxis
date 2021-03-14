@@ -2,7 +2,7 @@ import React from 'react';
 import { Popover, List } from 'antd';
 import Slider from "react-slick";
 import { MoreOutlined } from '@ant-design/icons';
-import { Container, Title, Header } from './style';
+import { Container, Title, Header, Thumbnail } from './style';
 
 // Soon will be removed if data is ready
 const tempDeals = [1, 2, 3, 4, 5]
@@ -32,19 +32,17 @@ const Deal = () => {
         <div className={Title}>
           Deals for you
         </div>
-
         <div>
         <Popover placement="leftTop" content={popoverContent} trigger="click">
           <MoreOutlined />
         </Popover>
-        
         </div>
       </div>
 
       <Slider dots prevArrow={empty} nextArrow={empty} infinite slidesToScroll={1}>
         {tempDeals.map(deal => (
-          <div key={deal}>
-            <h3 style={contentStyle}>{deal.toString()}</h3>
+          <div>
+            <img className={Thumbnail} src="images/gaming-deal.png" alt="gaming-deal"/>
           </div>
         ))}
       </Slider>
