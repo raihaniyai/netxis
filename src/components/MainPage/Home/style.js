@@ -25,7 +25,7 @@ export const Background = css`
 
 export const HeaderBox = css `
   width: 100%;
-  height: 16%;
+  height: 145px;
   z-index: 5;
   position: absolute;
   top: 0;
