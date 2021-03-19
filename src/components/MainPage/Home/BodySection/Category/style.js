@@ -8,13 +8,16 @@ export const Container = css`
   margin: 12px 0;
   display: inline-block;
   padding: 16px;
+  padding-bottom: 23px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = css`
-  font-weight: 600;
-  color: ${N400};
-  margin-bottom: 16px;
+  padding-left: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1E1E3F;
+  margin-bottom: 18px;
 `;
 
 export const OptionIcon = css`
@@ -28,6 +31,9 @@ export const OptionIcon = css`
   text-align: center;
   font-size: 24px;
   color: ${N0};
+  &:hover {
+    background: #404EFB;
+  }
 `;
 
 export const Option = css`
@@ -38,5 +44,5 @@ export const OptionName = css`
   margin-top: 8px;
   text-align: center;
   font-size: 12px;
-  color: ${N500}
+  color: #1E1E3F;
 `;

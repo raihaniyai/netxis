@@ -18,8 +18,10 @@ export const Header = css`
 `;
 
 export const Title = css`
-  font-weight: 600;
-  color: ${N400};
+  padding-left: 8px;
+  font-weight: 700;
+  font-size: 17px;
+  color: #1E1E3F;
   margin-bottom: 16px;
 `;
 

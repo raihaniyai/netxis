@@ -9,11 +9,13 @@ const Category = () => {
       <div className={Title}>
         Services and plans
       </div>
-
+      
       <Row gutter={[16, 16]}>
         {Categories.map(category => (
           <Col span={6} className={Option} key={category.title}>
-            <div className={OptionIcon}>{category.icon}</div>
+            <a href={`/Services/1`}>
+              <div className={OptionIcon}>{category.icon}</div>
+            </a>
             <div className={OptionName}>{category.title}</div>
           </Col>
         ))}

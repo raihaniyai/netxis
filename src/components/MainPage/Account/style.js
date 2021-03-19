@@ -2,11 +2,11 @@ import { css } from '@emotion/css';
 import { N0 } from 'unify-token/build/v2/colors';
 
 export const Container = css`
-  padding: 5% 5% 0 5%;
+  // padding: 5% 5% 0 5%;
+  padding-top: 5px;
   height: 100%;
   width: 100%;
-  background: #FFFFFF;
-  margin: 60px 0 50px 0;
+  background: #F3F4F5;
 `;
 
 export const Title = css`
@@ -15,13 +15,9 @@ export const Title = css`
   margin-bottom: 20px;
 `;
 
-export const SubscriptionCard = css`
-  margin: 16px 0;
-  justify-content: center;
-  width: 100%;
-  border-radius: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.40));
-`
+export const ProfileCard = css`
+  margin-top: 90px;
+`;
 
 export const HeaderTitle = css`
   background: #1E1E3F;
@@ -36,3 +32,4 @@ export const HeaderTitle = css`
   font-weight: 600;
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 `;
+

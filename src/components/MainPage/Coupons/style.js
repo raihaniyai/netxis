@@ -16,7 +16,7 @@ export const Title = css`
 `;
 
 export const HeaderTitle = css`
-  background: #3742CA;
+  background: #1E1E3F;
   height: 75px;
   position: absolute;
   top: 0;
@@ -42,16 +42,18 @@ export const CouponCard = css`
 export const CouponDesc = css`
   padding: 20px 20px;
   font-size: 20px;
+  color: #1E1E3F;
 `;
 
 export const Company = css`
-  paddint-top: 5px;
   font-size: 17px;
   font-style: italic;
+  margin-bottom: 10px;
 `;
 
 export const Expiration = css `
-  padding-top: 5px;
+  padding-top: 10px;
+  font-weight: 500;
   color: #FF3E3E;
   font-size: 15px;
 `;

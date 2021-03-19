@@ -19,8 +19,8 @@ code {
 html, body, #app, #app>div {
   height: 100%;
   /* background: #F3F4F5; */
-  background: #848efd;
-  /* background: #9A9DBC */
-  /* background: #FFFFFF; */
+  /* background: #848efd; */
+  /* background: #a6a8bd */
+  background: #babcd4;
 }
 

@@ -32,7 +32,7 @@ export const HeaderBox = css `
   left: 0;
   background: #1E1E3F;
   border-radius: 0 0 27px 27px;
-`
+`;
 
 export const GachaButton = css `
   z-index: 15;

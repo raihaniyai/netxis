@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N200 } from 'unify-token/build/v2/colors';
+import { N0, N200, N500 } from 'unify-token/build/v2/colors';
 
 export const Header = css`
   display: flex;
@@ -26,7 +26,7 @@ export const Welcome = css`
 
 export const Username = css`
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: ${N0};
 `;
 
@@ -49,11 +49,12 @@ export const BalanceContainer = css`
 
 export const Balance = css`
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 800;  
+  color: #1E1E3F;
 `;
 
 export const BalanceDescription = css`
-  color: ${N200};
+  color: ${N500};
   font-size: 14px;
 `;
 

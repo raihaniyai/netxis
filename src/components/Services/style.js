@@ -10,10 +10,37 @@ export const Header = css`
   display: flex;
 `;
 
+export const HeaderBox = css `
+  width: 100%;
+  height: 90px;
+  margin-top: 55px;
+  padding: 0px 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #404EFB;
+  border-radius: 0 0 27px 27px;
+  color: ${N0};
+`;
+
+export const HeaderTitle = css`
+  background: #404EFB;
+  height: 55px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 23px;
+  color: ${N0};
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+`;
+
 export const Title = css`
   font-size: 24px;
-  font-weight: 600;
-  margin: 4% 4%;
+  font-weight: 700;
+  color: ${N0};
 `;
 
 export const InputStyle = css`
@@ -24,25 +51,28 @@ export const InputStyle = css`
 export const Container = css`
   padding: 5% 5% 0 5%;
   height: 100%;
+  width: 100%;
+  background: #F3F4F5;
+  margin: 0 0 50px 0;
 `;
 
-export const ProductContainer = css`
+export const CompanyContainer = css`
   margin-top: 16px;
 `;
 
-export const ProductWrapper = css`
+export const CompanyWrapper = css`
   height: 160px;
   width: 100%;
   background: ${N0};
   border-radius: 12px;
-  box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.025), 4px 8px 24px rgba(0, 0, 0, 0.025);
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const ProductLogo = css`
+export const CompanyLogo = css`
   height: 64px;
   max-width: 100%;
   margin-bottom: 16px;
@@ -50,6 +80,6 @@ export const ProductLogo = css`
   border-radius: 12px;
 `;
 
-export const ProductName = css`
+export const CompanyName = css`
   font-weight: 600;
 `;
