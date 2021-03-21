@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N600 } from 'unify-token/build/v2/colors';
+import { N0, N50, N600 } from 'unify-token/build/v2/colors';
 
 export const Header = css`
   background: ${N600};
@@ -37,6 +37,10 @@ export const HeaderTitle = css`
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 `;
 
+export const HeaderWrapper = css`
+  margin: 0% 4%;
+`;
+
 export const Title = css`
   font-size: 24px;
   font-weight: 700;
@@ -52,8 +56,12 @@ export const Container = css`
   padding: 5% 5% 0 5%;
   height: 100%;
   width: 100%;
-  background: #F3F4F5;
+  background: ${N50};
   margin: 0 0 50px 0;
+`;
+
+export const CompanyBox = css`
+  margin-top: 132px;
 `;
 
 export const CompanyContainer = css`
@@ -82,4 +90,10 @@ export const CompanyLogo = css`
 
 export const CompanyName = css`
   font-weight: 600;
+  color: ${N600};
+`;
+
+export const SkeletonStyle = css`
+  padding: 10px;
+  text-align: -webkit-center;
 `;

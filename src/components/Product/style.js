@@ -4,16 +4,13 @@ import { N0 } from 'unify-token/build/v2/colors';
 export const HeaderTitle = css`
   background: #1E1E3F;
   height: 55px;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  display: inline;
   padding: 15px 23px;
   color: ${N0};
   font-size: 18px;
   font-weight: 500;
-//   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 `;
 
 export const Container = css`
@@ -75,5 +72,9 @@ export const BuyButton = css`
 export const ProductImage = css`
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   width: 100%;
-  padding-top: 55px;
+`;
+
+export const CheckStyle = css`
+  color: #404EFB;
+  margin-right: 12px;
 `;

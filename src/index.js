@@ -19,9 +19,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/app" component={App} />
-        <Route path="/Services/:services" component={Services} />
-        <Route path="/Company/:company" component={Company} />
-        <Route path="/Product/:product" component={Product} />
+        <Route path="/services/:servicesName" component={Services} />
+        <Route path="/company/:companyID" component={Company} />
+        <Route path="/product/:productID" component={Product} />
       </Switch>
     </GlobalProvider>
   </BrowserRouter>,

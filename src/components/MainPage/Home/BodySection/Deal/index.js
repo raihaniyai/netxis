@@ -6,13 +6,6 @@ import { Container, Title, Header, Thumbnail } from './style';
 
 // Soon will be removed if data is ready
 const tempDeals = [1, 2, 3, 4, 5]
-const contentStyle = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
 // end
 
 const Deal = () => {
@@ -41,7 +34,7 @@ const Deal = () => {
 
       <Slider dots prevArrow={empty} nextArrow={empty} infinite slidesToScroll={1}>
         {tempDeals.map(deal => (
-          <div>
+          <div key={deal}>
             <img className={Thumbnail} src="images/gaming-deal.png" alt="gaming-deal"/>
           </div>
         ))}

@@ -11,7 +11,7 @@ const Profile = () => {
                 </div>
                 <div>
                     <div className="name">Dharmawan Santosa</div>
-                    <div className="phone">Phone Number</div>
+                    <div className="phone">+62 812 3456 7890</div>
                 </div>
             </div>
         </div>
