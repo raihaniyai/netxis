@@ -26,7 +26,7 @@ export const OptionIcon = css`
   align-items: center;
   height: 48px;
   width: 48px;
-  background: ${N200};
+  background: #1E1E3F;
   border-radius: 15px;
   text-align: center;
   font-size: 24px;

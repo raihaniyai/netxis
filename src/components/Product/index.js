@@ -1,49 +1,61 @@
 import React from 'react';
-import { Row, Col, List } from 'antd';
+import { Row, Col, List, Skeleton } from 'antd';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import { useFetchProductData } from '../../helpers/apiGet';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
-import { Container, HeaderTitle, Title, ProductImage, DetailsContainer, DetailsList, ButtonContainer,BuyButton } from './style';
+import { Container, HeaderTitle, Title, ProductImage, DetailsContainer, DetailsList, ButtonContainer, BuyButton, CheckStyle } from './style';
 import proplan from '../Company/pro-plan.svg';
 
-const planDesc = [
-    'Runs all games',
-    '4 GB GPU VRAM and 6vCPU cores',
-    'Guaranteed 8k/120FPS stream',
-    'Latency <10ms',
-    'Unlimited 5G gaming data',
-    'Bonus with monthly plan: Play Turbo Arena II 48 hours before official release'
-]
+const skeleton = new Array(5).fill({});
 
 const Product = () => {
+    const { location } = useHistory();
+    const { company, services } = location;
+    const { productID } = useParams();
+    const { loading, response: planDesc } = useFetchProductData(productID);
+
     return (
         <>
             <Row justify="center">
                 <Col xs={24} md={12}>
                     <div className={Container}>
                         <div className={HeaderTitle}>
-                            <span><ArrowLeftOutlined/></span>
+                            <Link to={{ pathname: company ? `/company/${company.id}` : `/`, services: services, company: company }}><ArrowLeftOutlined/></Link>
                             <span>&nbsp;&nbsp;PRO Plan</span>
                         </div>
                         <img className={ProductImage} src={proplan} alt="product"/>
                     </div>
                     <div className={DetailsContainer}>
                         <div className={Title}>Details</div>
-                        <List
-                            className={DetailsList}
-                            dataSource={planDesc}
-                            renderItem={(desc) => (
-                            <List.Item style={{borderBottom: "0px"}}>
-                                <CheckOutlined style={{color: "#404EFB"}}/>&nbsp;&nbsp;{desc}
-                            </List.Item>
-                            )}
-                        />
-                        <div className={ButtonContainer}>
-                            <div className={BuyButton}>
-                                Buy Hourly Plan ($1.50/hour)
-                            </div>
-                            <div className={BuyButton}>
-                                Buy Monthly Plan ($69/month)
-                            </div>
-                        </div>
+                        {!loading && (
+                            <>
+                                <List
+                                    className={DetailsList}
+                                    dataSource={planDesc}
+                                    renderItem={(plan) => (
+                                    <List.Item style={{borderBottom: "0px"}}>
+                                        <div>
+                                            <CheckOutlined className={CheckStyle}/>
+                                            <span>{plan.description}</span>
+                                        </div>
+                                    </List.Item>
+                                    )}
+                                />
+
+                                <div className={ButtonContainer}>
+                                    <div className={BuyButton}>
+                                        Buy Hourly Plan ($1.50/hour)
+                                    </div>
+                                    <div className={BuyButton}>
+                                        Buy Monthly Plan ($69/month)
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                        
+                        {loading && skeleton.map((_, index) => (
+                            <Skeleton paragraph={{ rows: 1 }} key={index} />
+                        ))}
                     </div>
                 </Col>
             </Row>
