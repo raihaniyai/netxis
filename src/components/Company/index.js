@@ -20,7 +20,7 @@ const Company = () => {
                     <span>&nbsp;&nbsp;Cloudnetic Games</span>
                 </div>
                 <div className={ProfileContainer}>
-                    <img className={CompanyLogo} src={logo} width="100%"/>
+                    <img className={CompanyLogo} src={logo} width="100%" alt="logo"/>
                     <div className={CompanyName}>Cloudnetic Games</div>
                     <div className={CompanyType}>Gaming</div>
                 </div>

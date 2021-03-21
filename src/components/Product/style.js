@@ -1,6 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N600 } from 'unify-token/build/v2/colors';
-import { CheckOutlined } from '@ant-design/icons';
+import { N0 } from 'unify-token/build/v2/colors';
 
 export const HeaderTitle = css`
   background: #1E1E3F;

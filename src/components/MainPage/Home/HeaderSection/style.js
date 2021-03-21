@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N200, N500 } from 'unify-token/build/v2/colors';
+import { N0, N500 } from 'unify-token/build/v2/colors';
 
 export const Header = css`
   display: flex;

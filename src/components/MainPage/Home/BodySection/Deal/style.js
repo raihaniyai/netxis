@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N400 } from 'unify-token/build/v2/colors';
+import { N0 } from 'unify-token/build/v2/colors';
 
 export const Container = css`
   width: -webkit-fill-available;

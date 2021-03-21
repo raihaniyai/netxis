@@ -2,9 +2,7 @@ import React from 'react';
 import { Input, Row, Col } from 'antd'; 
 import { SearchOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useParams } from 'react-router-dom';
-import capitalize from '../../helpers/capitalize';
-import PageHeader from '../PageHeader';
-import { Header, Title, InputStyle, Container, CompanyContainer, CompanyWrapper, CompanyLogo, CompanyName, HeaderBox, HeaderTitle } from './style';
+import { Title, InputStyle, Container, CompanyContainer, CompanyWrapper, CompanyLogo, CompanyName, HeaderBox, HeaderTitle } from './style';
 
 const tempCompany = [
   {

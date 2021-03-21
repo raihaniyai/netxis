@@ -3,7 +3,6 @@ import { Row, Col, List } from 'antd';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
 import { Container, HeaderTitle, Title, ProductImage, DetailsContainer, DetailsList, ButtonContainer,BuyButton } from './style';
 import proplan from '../Company/pro-plan.svg';
-import tick from './tick.svg';
 
 const planDesc = [
     'Runs all games',
@@ -24,7 +23,7 @@ const Product = () => {
                             <span><ArrowLeftOutlined/></span>
                             <span>&nbsp;&nbsp;PRO Plan</span>
                         </div>
-                        <img className={ProductImage} src={proplan}/>
+                        <img className={ProductImage} src={proplan} alt="product"/>
                     </div>
                     <div className={DetailsContainer}>
                         <div className={Title}>Details</div>
