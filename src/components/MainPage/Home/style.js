@@ -25,14 +25,14 @@ export const Background = css`
 
 export const HeaderBox = css `
   width: 100%;
-  height: 16%;
+  height: 145px;
   z-index: 5;
   position: absolute;
   top: 0;
   left: 0;
   background: #1E1E3F;
   border-radius: 0 0 27px 27px;
-`
+`;
 
 export const GachaButton = css `
   z-index: 15;

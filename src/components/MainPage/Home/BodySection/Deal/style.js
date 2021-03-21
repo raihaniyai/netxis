@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { N0, N400 } from 'unify-token/build/v2/colors';
+import { N0 } from 'unify-token/build/v2/colors';
 
 export const Container = css`
   width: -webkit-fill-available;
@@ -18,8 +18,10 @@ export const Header = css`
 `;
 
 export const Title = css`
-  font-weight: 600;
-  color: ${N400};
+  padding-left: 8px;
+  font-weight: 700;
+  font-size: 17px;
+  color: #1E1E3F;
   margin-bottom: 16px;
 `;
 

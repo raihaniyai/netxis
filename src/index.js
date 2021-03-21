@@ -5,10 +5,13 @@ import { GlobalProvider } from './contexts/GlobalContext';
 import './index.css';
 
 import MainPage from './components/MainPage';
-import Products from './components/Products';
+import Services from './components/Services';
+import Company from './components/Company';
+import Product from './components/Product';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,7 +19,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/app" component={App} />
-        <Route path="/Products/:product" component={Products} />
+        <Route path="/Services/:services" component={Services} />
+        <Route path="/Company/:company" component={Company} />
+        <Route path="/Product/:product" component={Product} />
       </Switch>
     </GlobalProvider>
   </BrowserRouter>,
