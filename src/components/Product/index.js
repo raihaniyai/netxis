@@ -4,7 +4,7 @@ import { useParams, Link, useHistory } from 'react-router-dom';
 import { useFetchProductData } from '../../helpers/apiGet';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
 import { Container, HeaderTitle, Title, ProductImage, DetailsContainer, DetailsList, ButtonContainer, BuyButton, CheckStyle } from './style';
-import proplan from '../Company/pro-plan.svg';
+import proplan from '../../images/pro-plan.svg';
 
 const skeleton = new Array(5).fill({});
 
