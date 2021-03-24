@@ -45,11 +45,6 @@ const Company = () => {
                                             <img className={SubscriptionCard} src={proplan} alt="pro-plan"/>
                                         </Link>
                                         <img className={SubscriptionCard} src={kidspackage} alt="kids-package"/>
-                                        {/* {
-                                            subscriptionIds.map(subscriptionId => (
-                                            <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
-                                            ))
-                                        } */}
                                     </>
                                 )}
 
