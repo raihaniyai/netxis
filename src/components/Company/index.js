@@ -4,10 +4,11 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import capitalize from '../../helpers/capitalize';
 import { useFetchCompanyData } from '../../helpers/apiGet';
-import { Container, HeaderTitle, ProfileContainer, CompanyLogo, CompanyName, CompanyType, ItemContainer, SubscriptionCard } from './style';
-import powerplan from './power-plan.svg';
-import proplan from './pro-plan.svg';
-import kidspackage from './kids-package.svg';
+import { Container, HeaderTitle, ProfileContainer, CompanyLogo, CompanyName, CompanyType, ItemContainer, SubscriptionCard, CardContainer, CardTitle, CardSubtitle } from './style';
+import powerplan from '../../images/power-plan.svg';
+import proplan from '../../images/pro-plan.svg';
+import kidspackage from '../../images/kids-package.svg';
+import plan0 from '../../images/plan-0.svg';
 
 const { TabPane } = Tabs;
 const skeleton = new Array(3).fill({});
@@ -60,11 +61,12 @@ const Company = () => {
                                 <img className={SubscriptionCard} src={kidspackage} alt="kids-package"/>
                                 <img className={SubscriptionCard} src={powerplan} alt="power-plan"/>
                                 <img className={SubscriptionCard} src={proplan} alt="pro-plan"/>
-                                {/* {
-                                    subscriptionIds.map(subscriptionId => (
-                                    <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
-                                    ))
-                                } */}
+                                
+                                <div className={CardContainer}>
+                                    <img className={SubscriptionCard} src={plan0} alt="plan-temp"/>
+                                    <div className={CardTitle}>Power Plan</div>
+                                    <div className={CardSubtitle}>$1/hour, $49/month</div>
+                                </div>
                             </TabPane>
                         </Tabs>
                     </div>

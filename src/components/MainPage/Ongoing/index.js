@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, HeaderTitle, SubscriptionCard } from './style';
+import { CardContainer, CardTitle, CardSubtitle, Container, HeaderTitle, SubscriptionCard } from './style';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
@@ -17,8 +17,11 @@ const Ongoing = () => {
             <img className={SubscriptionCard} src="images/kids-package.svg" alt="kids-package"/>
             {
                 subscriptionIds.map(subscriptionId => (
-                  <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
-                ))
+                  <div className={CardContainer}>
+                    <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
+                    <div className={CardTitle}>Power Plan</div>
+                    <div className={CardSubtitle}>$1/hour, $49/month</div>
+                  </div>                ))
             }
           </TabPane>
           <TabPane tab="History" key="2">
@@ -27,9 +30,13 @@ const Ongoing = () => {
             <img className={SubscriptionCard} src="images/pro-plan.svg" alt="pro-plan"/>
             {
                 subscriptionIds.map(subscriptionId => (
-                  <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
+                  <div className={CardContainer}>
+                    <img className={SubscriptionCard} src={`images/plan-${subscriptionId % 3}.svg`} alt={`${subscriptionId}`}/>
+                    <div className={CardTitle}>Power Plan</div>
+                    <div className={CardSubtitle}>$1/hour, $49/month</div>
+                  </div>
                 ))
-          }
+            }
           </TabPane>
         </Tabs>
       </div>
