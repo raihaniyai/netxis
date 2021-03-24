@@ -78,16 +78,16 @@ export const CardContainer = css`
 export const CardTitle = css`
   position: absolute;
   top: 40%;
-  left: 160px;
+  left: 155px;
   transform: translate(-50%, -50%);
   font-family: Racing Sans One;
-  font-size: 320%;
+  font-size: 300%;
   width: 100%;
 `;
 
 export const CardSubtitle = css`
   position: absolute;
-  top: 63%;
+  top: 64%;
   left: 125px;
   transform: translate(-50%, -50%);
   font-size: 130%;
