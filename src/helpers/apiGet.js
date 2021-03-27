@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ServiceEndpoint, CompanyEndpoint, ProductEndpoint } from './../constants/endpoint'
 
 const useCustomFetcher = ({ resourceURL = {} }) => {
   const [result, setResult] = useState({ loading: true, returnData: null });
@@ -25,7 +26,7 @@ const useCustomFetcher = ({ resourceURL = {} }) => {
 };
 
 export const useFetchServiceData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/service`);
+  const resourceURL = new URL(ServiceEndpoint(service));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];
@@ -54,8 +55,8 @@ export const useFetchServiceData = service => {
   };
 };
 
-export const useFetchCompanyData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/company`);
+export const useFetchCompanyData = company => {
+  const resourceURL = new URL(CompanyEndpoint(company));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];
@@ -84,8 +85,8 @@ export const useFetchCompanyData = service => {
   };
 };
 
-export const useFetchProductData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/product`);
+export const useFetchProductData = product => {
+  const resourceURL = new URL(ProductEndpoint(product));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];

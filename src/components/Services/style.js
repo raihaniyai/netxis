@@ -78,6 +78,7 @@ export const CompanyWrapper = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: -webkit-center;
 `;
 
 export const CompanyLogo = css`
@@ -94,6 +95,6 @@ export const CompanyName = css`
 `;
 
 export const SkeletonStyle = css`
-  padding: 10px;
+  padding: 0 42px;
   text-align: -webkit-center;
 `;

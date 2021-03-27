@@ -60,7 +60,8 @@ const Services = () => {
                 {loading && skeleton.map((_, index) => (
                   <Col xs={12} md={8} key={index}>
                     <div className={CompanyWrapper}>
-                      <Skeleton active className={SkeletonStyle} />
+                      <Skeleton.Avatar active size={64} shape="square" />
+                      <Skeleton className={SkeletonStyle} active paragraph={false} />
                     </div>
                   </Col>
                 ))}
