@@ -19,7 +19,7 @@ const HeaderSection = ({ user }) => {
       <div className={Header}>
         <div>
           <div className={Welcome}>Welcome,</div>
-          <div className={Username}>{user.name}</div> 
+          <div className={Username}>{user.first_name} {user.last_name}</div> 
         </div>
 
         <div>
@@ -30,13 +30,13 @@ const HeaderSection = ({ user }) => {
 
       <div className={WalletContainer}>
         <div className={BalanceContainer}>
-          <div className={Balance}>{user.balance}</div>
+          <div className={Balance}>$ {user.balance}</div>
           <div className={BalanceDescription}>Telego Balance</div> 
         </div>
 
         <div className={BalanceAction}>
           <LogoutOutlined className={RotateIcon} />
-          <MoneyCollectOutlined className={Icon} style={{color: "#1E1E3F"}}/>
+          <MoneyCollectOutlined className={Icon} />
         </div>
       </div>
     </>
