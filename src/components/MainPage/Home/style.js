@@ -33,26 +33,3 @@ export const HeaderBox = css `
   background: #1E1E3F;
   border-radius: 0 0 27px 27px;
 `;
-
-export const GachaButton = css `
-  z-index: 15;
-  position: sticky;
-  width: 17%;
-  float: right;
-  bottom: 18%;
-  align-items: center;
-  justify-content: center;
-  font-size: 70%;
-`
-
-export const Countdown = css `
-  background: #404EFB;
-  border-radius: 38px;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  margin-left: 13%;
-  width: 75%;
-  font-size: 8px;
-  text-align: center;
-  color: #FFFFFF;
-`
