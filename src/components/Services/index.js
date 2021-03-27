@@ -38,7 +38,7 @@ const Services = () => {
             <div className={HeaderBox}>
               <div className={HeaderWrapper}>
                 <div>Services and plans</div>
-                <div className={Title}>{capitalize(servicesName)}</div>
+                <div className={Title}>{capitalize(servicesName).replace('_', ' ')}</div>
               </div>
             </div>
 

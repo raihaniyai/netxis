@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UserEndpoint } from './../constants/endpoint'
+import { UserEndpoint, OrderEndpoint } from './../constants/endpoint';
 
 const useCustomPoster = () => {
   const [result, setResult] = useState({ loading: true, returnData: {} });
@@ -57,5 +57,41 @@ export const usePostUpdateBalance = () => {
     isError,
     messageError,
     postUpdateBalance,
+  };
+};
+
+export const usePostOrder = () => {
+  const { result, postFetcher } = useCustomPoster();
+  const { loading, returnData } = result;
+  let isSuccess = false;
+  let isError = false;
+  let messageError = '';
+
+  const postOrder = params => {
+    const resourceURL = new URL(OrderEndpoint(params.userID));
+    const bodyParam = {
+      planID: params.planID,
+      planType: params.planType,
+      price: params.price,
+    };
+
+    postFetcher({ resourceURL, params: JSON.stringify(bodyParam) });
+  };
+
+  if (!loading) {
+    if (!returnData?.success) {
+      isError = !returnData?.success;
+      messageError = "An error has occured";
+    } else {
+      isSuccess = returnData?.success;
+    }
+  }
+
+  return {
+    loading,
+    isSuccess,
+    isError,
+    messageError,
+    postOrder,
   };
 };

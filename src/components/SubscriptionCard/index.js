@@ -2,7 +2,13 @@ import React from 'react';
 import { CardContainer, CardSubtitle, CardTitle, Background } from './style';
 
 const SubscriptionCard = ({ id, title, price, durationType }) => {
-    const subtitle = `$${price}/hour`;
+    let duration;
+
+    if (durationType === 1) duration = 'Day';
+    else if (durationType === 2) duration = 'Month';
+    else if (durationType === 3) duration = 'Year';
+
+    const subtitle = `$${price}/${duration}`;
 
     return (
         <div className={CardContainer}>
