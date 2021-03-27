@@ -38,8 +38,8 @@ const MainPage = () => {
   return (
     <>
       <Row justify="center">
-        <Col xs={24} md={6}>
-            {content}
+        <Col xs={24} sm={16} md={12} lg={10}>
+          {content}
         </Col>
       </Row>
       <Navbar />

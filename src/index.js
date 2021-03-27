@@ -8,6 +8,7 @@ import MainPage from './components/MainPage';
 import Services from './components/Services';
 import Company from './components/Company';
 import Product from './components/Product';
+import CouponDetails from './components/CouponDetails';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/services/:servicesName" component={Services} />
         <Route path="/company/:companyID" component={Company} />
         <Route path="/product/:productID" component={Product} />
+        <Route path="/coupon/:couponID" component={CouponDetails} />
       </Switch>
     </GlobalProvider>
   </BrowserRouter>,

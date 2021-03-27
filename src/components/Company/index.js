@@ -16,6 +16,8 @@ const Company = () => {
     const { companyID } = useParams();
     const { services, company } = location;
     const { loading, response: productList } = useFetchCompanyData(companyID);
+    
+    console.log(productList)
 
     return (
         <>
@@ -36,13 +38,13 @@ const Company = () => {
                     <div className={ItemContainer}>
                         <Tabs defaultActiveKey="1" centered size="large">
                             <TabPane tab="Subscriptions" key="1">
-                                {!loading && (
-                                    <>
-                                        <Link to={{pathname: `/product/1`, company: company, services: services}}>
-                                            <SubscriptionCard id="5"/>                                        
+                                {!loading && productList.map(product => (
+                                    <div key={product.id}>
+                                        <Link to={{pathname: `/product/${product.id}`, company: company, services: services}}>
+                                            <SubscriptionCard id={product.id} title={product.name} price={product.price} durationType={product.duration_type} />                                        
                                         </Link>
-                                    </>
-                                )}
+                                    </div>
+                                ))}
 
                                 {loading && skeleton.map((_, index) => (
                                     <Skeleton active key={index} />
