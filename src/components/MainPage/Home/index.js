@@ -17,8 +17,6 @@ const Home = () => {
     setGachaPop(true);
   }
 
-  console.log(loading)
-
   return (
     <>
     <div className={BackgroundContainer}>

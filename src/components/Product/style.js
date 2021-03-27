@@ -54,12 +54,12 @@ export const ButtonContainer = css`
 `;
 
 export const BuyButton = css`
-  background: #EBEAEC;
+  background: #1E1E3F;
   border-radius: 38px;
   width: 100%;
   font-size: 16px;
   font-weight: 650;
-  color: #1E1E3F;
+  color: ${N0};
   text-align: center;
   padding: 20px;
   margin-bottom: 15px;
