@@ -31,7 +31,7 @@ const HeaderSection = ({ user }) => {
       <div className={WalletContainer}>
         <div className={BalanceContainer}>
           <div className={Balance}>{user.balance}</div>
-          <div className={BalanceDescription}>Netxis Balance</div> 
+          <div className={BalanceDescription}>Telego Balance</div> 
         </div>
 
         <div className={BalanceAction}>

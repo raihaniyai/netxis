@@ -3,7 +3,7 @@ import { Container, HeaderTitle, ProfileCard } from './style';
 import { List } from 'antd';
 import Profile from './Profile/index'
 
-const profileSettings = ['My Cards', 'Netxis Balance', 'Privacy and Security', 'Settings', 'Help', 'Terms of Service', 'Report']
+const profileSettings = ['My Cards', 'Telego Balance', 'Privacy and Security', 'Settings', 'Help', 'Terms of Service', 'Report']
 
 const Coupons = () => {
   return (
@@ -12,8 +12,6 @@ const Coupons = () => {
           <div className={HeaderTitle}>My Account</div>
           <div className={ProfileCard}><Profile /></div>
           <List
-            // header={<div>Header</div>}
-            // footer={<div>Footer</div>}
             bordered
             style={{background: "#FFFFFF", color: "#1E1E3F"}}
             dataSource={profileSettings}
