@@ -4,11 +4,9 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import capitalize from '../../helpers/capitalize';
 import { useFetchCompanyData } from '../../helpers/apiGet';
-import { Container, HeaderTitle, ProfileContainer, CompanyLogo, CompanyName, CompanyType, ItemContainer, SubscriptionCard, CardContainer, CardTitle, CardSubtitle } from './style';
-import powerplan from '../../images/power-plan.svg';
-import proplan from '../../images/pro-plan.svg';
-import kidspackage from '../../images/kids-package.svg';
-import plan0 from '../../images/plan-0.svg';
+import { Container, HeaderTitle, ProfileContainer, CompanyLogo, CompanyName, CompanyType, ItemContainer } from './style';
+import SubscriptionCard from '../SubscriptionCard';
+ 
 
 const { TabPane } = Tabs;
 const skeleton = new Array(3).fill({});
@@ -40,11 +38,9 @@ const Company = () => {
                             <TabPane tab="Subscriptions" key="1">
                                 {!loading && (
                                     <>
-                                        <img className={SubscriptionCard} src={powerplan} alt="power-plan"/>
                                         <Link to={{pathname: `/product/1`, company: company, services: services}}>
-                                            <img className={SubscriptionCard} src={proplan} alt="pro-plan"/>
+                                            <SubscriptionCard id="5"/>                                        
                                         </Link>
-                                        <img className={SubscriptionCard} src={kidspackage} alt="kids-package"/>
                                     </>
                                 )}
 
@@ -53,15 +49,8 @@ const Company = () => {
                                 ))}
                             </TabPane>
                             <TabPane tab="Products" key="2">
-                                <img className={SubscriptionCard} src={kidspackage} alt="kids-package"/>
-                                <img className={SubscriptionCard} src={powerplan} alt="power-plan"/>
-                                <img className={SubscriptionCard} src={proplan} alt="pro-plan"/>
-                                
-                                <div className={CardContainer}>
-                                    <img className={SubscriptionCard} src={plan0} alt="plan-temp"/>
-                                    <div className={CardTitle}>Power Plan</div>
-                                    <div className={CardSubtitle}>$1/hour, $49/month</div>
-                                </div>
+                                <SubscriptionCard id="4"/>
+                                <SubscriptionCard id="5"/>
                             </TabPane>
                         </Tabs>
                     </div>

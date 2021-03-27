@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import GlobalContext from './../../../contexts/GlobalContext';
+import { Modal } from 'antd';
 import HeaderSection from './HeaderSection';
 import BodySection from './BodySection';
-import { Background, BackgroundContainer, Container, GachaButton, Countdown, HeaderBox} from './style';
+import { Background, BackgroundContainer, Container, HeaderBox } from './style';
+import GachaButton from './GachaButton';
+import SubscriptionCard from '../../SubscriptionCard';
 
 const user = {
   name: 'Dharmawan Santosa',
@@ -9,6 +13,15 @@ const user = {
 };
 
 const Home = () => {
+
+  const { setActiveMenu } = useContext(GlobalContext);
+
+  const [gachaPop, setGachaPop] = useState(false);
+
+  const onClickGacha = () => {
+    setGachaPop(true);
+  }
+
   return (
     <>
     <div className={BackgroundContainer}>
@@ -17,10 +30,19 @@ const Home = () => {
       <div className={Container}>
         <HeaderSection user={user} />
         <BodySection />
-        <div className={GachaButton}>
-          <div className={Countdown}> 22:58:02 </div>
-          <img src="images/gacha-icon.svg" alt="gacha-icon" width="100%"/>
-        </div>
+        <GachaButton onClickGacha={onClickGacha}/>
+        <Modal title="Daily Gacha"
+          centered
+          visible={gachaPop}
+          onCancel={() => setGachaPop(false)}
+          cancelText="Close"
+          onOk={() => setActiveMenu(2)}
+          okText="Go to Coupons"
+          style={{padding: "15px"}}
+        >
+          <div style={{textAlign: 'center'}}>Congratulations! You received: </div>
+          <SubscriptionCard id="5" />
+        </Modal>
       </div>
     </div>
     </>

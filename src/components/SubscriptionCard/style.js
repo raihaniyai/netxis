@@ -1,19 +1,4 @@
 import { css } from '@emotion/css';
-import { N0 } from 'unify-token/build/v2/colors';
-
-export const Container = css`
-  padding: 5% 5% 0 5%;
-  height: 100%;
-  width: 100%;
-  background: #FFFFFF;
-  margin: 60px 0 50px 0;
-`;
-
-export const Title = css`
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 20px;
-`;
 
 export const Background = css`
   margin: 16px 0;
@@ -27,37 +12,26 @@ export const CardContainer = css`
   position: relative;
   text-align: center;
   color: white;
+  width: 100%;
 `;
 
 export const CardTitle = css`
   position: absolute;
   top: 40%;
-  left: 160px;
+  left: 120px;
+  // left: 160px;
   transform: translate(-50%, -50%);
   font-family: Racing Sans One;
-  font-size: 320%;
+  font-size: 240%;
   width: 100%;
 `;
 
 export const CardSubtitle = css`
   position: absolute;
   top: 63%;
-  left: 125px;
+  left: 115px;
+  // left: 125px;
   transform: translate(-50%, -50%);
   font-size: 130%;
   width: 100%;
-`;
-
-export const HeaderTitle = css`
-  background: #1E1E3F;
-  height: 75px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 25px 27px;
-  color: ${N0};
-  font-size: 18px;
-  font-weight: 600;
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 `;

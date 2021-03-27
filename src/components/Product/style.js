@@ -28,7 +28,7 @@ export const Title = css`
 `;
 
 export const DetailsContainer = css`
-  padding: 5% 5% 0% 5%;
+  padding: 3% 5% 0% 5%;
   width: 100%;
   // height: 100%;
   background: #FFFFFF;
@@ -77,4 +77,28 @@ export const ProductImage = css`
 export const CheckStyle = css`
   color: #404EFB;
   margin-right: 12px;
+`;
+
+export const PaymentContainer = css`
+  margin-top: 15px;
+  color: #1E1E3F;
+`;
+
+export const PaymentData = css`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+`;
+
+export const TotalPayment = css`
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #F4F4F4;
+  color: #1E1E3F;
+`;
+
+export const PromoCodeInput = css`
+  text-align: right;
+  margin: 15px 0px;
 `;
