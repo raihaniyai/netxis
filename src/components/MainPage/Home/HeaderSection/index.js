@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Skeleton } from 'antd';
 import { StarOutlined, BellOutlined, MoneyCollectOutlined, LogoutOutlined } from '@ant-design/icons';
+import TopupModal from './TopupModal';
 import {
   Balance,
   BalanceContainer,
@@ -13,13 +15,21 @@ import {
   Welcome,
 } from './style'
 
-const HeaderSection = ({ user }) => {
+const HeaderSection = ({ user, loading }) => {
+  const [topupVisibility, setTopupVisibility] = useState(false);
+  const [balance, setBalance] = useState(0)
+
+  useEffect(() => {
+    if (!loading) setBalance(user.balance)
+  }, [loading, user])
+
   return (
     <>
       <div className={Header}>
         <div>
           <div className={Welcome}>Welcome,</div>
-          <div className={Username}>{user.first_name} {user.last_name}</div> 
+          {loading && <Skeleton paragraph={false} />}
+          {!loading && <div className={Username}>{user.first_name} {user.last_name}</div> }
         </div>
 
         <div>
@@ -30,15 +40,19 @@ const HeaderSection = ({ user }) => {
 
       <div className={WalletContainer}>
         <div className={BalanceContainer}>
-          <div className={Balance}>$ {user.balance}</div>
+          <div className={Balance}>
+            $ {loading ? <Skeleton.Input style={{ width: 64 }} /> : balance}
+          </div>
           <div className={BalanceDescription}>Telego Balance</div> 
         </div>
 
         <div className={BalanceAction}>
-          <LogoutOutlined className={RotateIcon} />
+          <LogoutOutlined className={RotateIcon} onClick={() => setTopupVisibility(true)} />
           <MoneyCollectOutlined className={Icon} />
         </div>
       </div>
+
+      <TopupModal visible={topupVisibility} setVisible={setTopupVisibility} setBalance={setBalance} />
     </>
   )
 }

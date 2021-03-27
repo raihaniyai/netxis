@@ -4,26 +4,20 @@ import { Modal } from 'antd';
 import HeaderSection from './HeaderSection';
 import BodySection from './BodySection';
 import { useFetchUserData } from '../../../helpers/apiGet';
-import { Background, BackgroundContainer, Container, GachaButton, Countdown, HeaderBox} from './style';
 import { Background, BackgroundContainer, Container, HeaderBox } from './style';
 import GachaButton from './GachaButton';
 import SubscriptionCard from '../../SubscriptionCard';
 
-const user = {
-  name: 'Dharmawan Santosa',
-  balance: '235.90'
-};
-
 const Home = () => {
   const { loading, response: userData } = useFetchUserData(1);
-
   const { setActiveMenu } = useContext(GlobalContext);
-
   const [gachaPop, setGachaPop] = useState(false);
 
   const onClickGacha = () => {
     setGachaPop(true);
   }
+
+  console.log(loading)
 
   return (
     <>
@@ -31,7 +25,7 @@ const Home = () => {
       <div className={Background}></div>
       <div className={HeaderBox}></div>
       <div className={Container}>
-        <HeaderSection user={loading ? user : userData} />
+        <HeaderSection user={userData} loading={loading} />
         <BodySection />
         <GachaButton onClickGacha={onClickGacha}/>
         <Modal title="Daily Gacha"
