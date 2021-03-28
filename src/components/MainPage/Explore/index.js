@@ -55,33 +55,6 @@ const Explore = () => {
           }
         }} bordered />
       {news}
-
-      {/* <Row className={CategoriesContainer} gutter={[8, 0]} wrap={false}>
-        {CategoryList.map(category => (
-          <Col key={category}>
-            <div onClick={() => changeTab(category)} className={Category}>{category}</div>
-          </Col>
-        ))}
-      </Row> */}
-      {/* <Tabs categoryList={CategoryList}/>
-
-      <Input className={InputStyle} placeholder="Search" prefix={<SearchOutlined />} bordered />
-
-      {
-        !loading && newsInfo.map(news => 
-          (
-            <NewsCard title={news.name} url={news.url} desc={news.description} date={news.datePublished.slice(0,10)}/>
-          )
-      )}
-      
-      <Carousel />
-
-      {
-        !loading &&  <Trendings news={newsInfo.slice(0,5)}/>
-      } */}
-
-
-      
     </div>
   )
 }

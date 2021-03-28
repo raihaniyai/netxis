@@ -42,7 +42,7 @@ const TopupModal = ({ visible, setVisible, setBalance }) => {
   }
   
   return (
-    <Modal title="Toup Up Balance" visible={visible} onOk={handleUpdateBalance} onCancel={handleCancel}>
+    <Modal title="Top Up Balance" visible={visible} onOk={handleUpdateBalance} onCancel={handleCancel}>
       <Input onChange={onChange}/>
     </Modal>
   )
