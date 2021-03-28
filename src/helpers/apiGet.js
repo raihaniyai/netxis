@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 
-const useCustomFetcher = ({ resourceURL = {} }) => {
+const useCustomFetcher = ({ resourceURL = {}, header = {} }) => {
   const [result, setResult] = useState({ loading: true, returnData: null });
+  const options = {
+    headers: header
+  }
 
   useEffect(() => {
     if (!result.returnData) {
-      fetch(resourceURL)
+      fetch(resourceURL, options)
       .then(res => res.json())
       .then(
         (result) => {
@@ -22,6 +25,38 @@ const useCustomFetcher = ({ resourceURL = {} }) => {
   };
 
   return { loading: result.loading, returnData: result.returnData, refetch };
+};
+
+export const useFetchNews = query => {
+  const resourceURL = new URL(`https://api.bing.microsoft.com/v7.0/news/search?q=5g+${query}&count=30`);
+  const header = {
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': '735c4e32912f4315a17b18a761811a1f'
+  }
+  const { returnData = {}, loading } = useCustomFetcher({ resourceURL, header });
+  if (!loading) { const success = returnData.success || [];
+    if (!success) {
+      const errorAPI = returnData.messageError[0] || ``;
+      console.error(errorAPI);
+
+      return {
+        loading,
+        isError: true,
+        messageError: errorAPI,
+      };
+    }
+
+    const { value } = returnData || {};
+
+    return {
+      response: value,
+      loading,
+    };
+  }
+
+  return {
+    loading,
+  };
 };
 
 export const useFetchServiceData = service => {

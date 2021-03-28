@@ -7,6 +7,7 @@ import Coupons from './Coupons';
 import Ongoing from './Ongoing';
 import Account from './Account';
 import Navbar from './NavigationBar';
+import { ExploreProvider } from '../../contexts/ExploreContext';
 
 const MainPage = () => {
   const { activeMenu } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ const MainPage = () => {
         setContent(<Coupons />);
         break;
       case 3:
-        setContent(<Explore />);
+        setContent(<ExploreProvider><Explore /></ExploreProvider>);
         break;
       case 4:
         setContent(<Ongoing />);

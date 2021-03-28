@@ -8,12 +8,14 @@ const Carousel = () => {
     <Row className={ContentsContainer} gutter={[8, 0]} wrap={false}>
       {ContentList.map(content => (
         <Col key={content.id}>
-          <div className={Content}>
-            <div>
-              <img className={Thumbnail} src={content.img} alt={content.title} />
+          <a href={content.url}>
+            <div className={Content}>
+              <div>
+                <img className={Thumbnail} src={content.img} alt={content.title} />
+              </div>
+              <div className={ContentDesc}>{content.title}</div>
             </div>
-            <div className={ContentDesc}>{content.title}</div>
-          </div>
+          </a>
         </Col>
       ))}
     </Row>
