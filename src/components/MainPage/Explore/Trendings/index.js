@@ -4,7 +4,7 @@ import { TempTrending } from './../constants';
 import { Title } from './../style'
 import { TrendingWrapper, ListStyle, TrendingOrder } from'./style';
 
-const Trendings = () => {
+const Trendings = ({ news }) => {
   return (
     <>
       <div>
@@ -13,14 +13,16 @@ const Trendings = () => {
 
       <List
         className={ListStyle}
-        dataSource={TempTrending}
+        dataSource={news}
         renderItem={(trending, index) => (
-          <List.Item>
-            <div className={TrendingWrapper}>
-              <div className={TrendingOrder}>{index + 1}</div>
-              <div>{trending}</div>
-            </div>
-          </List.Item>
+          <a href = {trending.url}>
+            <List.Item>
+              <div className={TrendingWrapper}>
+                <div className={TrendingOrder}>{index + 1}</div>
+                <div>{trending.name}</div>
+              </div>
+            </List.Item>
+          </a>
         )}
       />
     </>

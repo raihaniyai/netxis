@@ -17,6 +17,7 @@ export const Content = css`
   box-shadow: -4px -8px 24px rgba(0, 0, 0, 0.025), 4px 8px 24px rgba(0, 0, 0, 0.025);
   overflow: hidden;
   width: 250px;
+  color: #1E1E3F;
 `;
 
 export const ContentDesc = css`
