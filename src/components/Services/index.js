@@ -39,7 +39,7 @@ const Services = () => {
             <div className={HeaderBox}>
               <div className={HeaderWrapper}>
                 <div>Services and plans</div>
-                <div className={Title}>{capitalize(servicesName)}</div>
+                <div className={Title}>{capitalize(servicesName).replace('_', ' ')}</div>
               </div>
             </div>
 
@@ -61,7 +61,8 @@ const Services = () => {
                 {loading && skeleton.map((_, index) => (
                   <Col xs={12} md={8} key={index}>
                     <div className={CompanyWrapper}>
-                      <Skeleton active className={SkeletonStyle} />
+                      <Skeleton.Avatar active size={64} shape="square" />
+                      <Skeleton className={SkeletonStyle} active paragraph={false} />
                     </div>
                   </Col>
                 ))}

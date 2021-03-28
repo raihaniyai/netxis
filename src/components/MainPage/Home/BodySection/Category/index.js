@@ -13,7 +13,7 @@ const Category = () => {
       <Row gutter={[16, 16]}>
         {Categories.map(category => (
           <Col span={6} className={Option} key={category.title}>
-            <a href={`/services/${category.title.toLowerCase()}`}>
+            <a href={`/services/${category.title.toLowerCase().replace(' ', '_')}`}>
               <div className={OptionIcon}>{category.icon}</div>
             </a>
             <div className={OptionName}>{category.title}</div>

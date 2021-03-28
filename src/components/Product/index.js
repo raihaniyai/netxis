@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
-import { Row, Col, List, Skeleton, Modal, Input } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Row, Col, List, Skeleton } from 'antd';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { useFetchProductData } from '../../helpers/apiGet';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
-import { Container, HeaderTitle, Title, DetailsContainer, DetailsList, ButtonContainer, BuyButton, CheckStyle, PaymentContainer, PaymentData, PromoCodeInput, TotalPayment } from './style';
+import { Container, HeaderTitle, Title, DetailsContainer, DetailsList, ButtonContainer, BuyButton, CheckStyle } from './style';
 import SubscriptionCard from '../SubscriptionCard';
+import PaymentModal from './PaymentModal';
 
 const skeleton = new Array(5).fill({});
-const { Search } = Input;
 
 const Product = () => {
     const { location } = useHistory();
     const { company, services } = location;
     const { productID } = useParams();
-    const { loading, response: planDesc } = useFetchProductData(productID);
-
+    const { loading, response: plan } = useFetchProductData(productID);
+    const [duration, setDuration] = useState('')
     const [paymentPop, setPaymentPop] = useState(false);
+
+    useEffect(() => {
+        if (!loading) {
+            if (plan.durationType === 1) setDuration('Day')
+            else if (plan.durationType === 2) setDuration('Month')
+            else if (plan.durationType === 3) setDuration('Year')
+        }
+    }, [loading, plan]);
 
     return (
         <>
@@ -24,10 +32,8 @@ const Product = () => {
                     <div className={Container}>
                         <div className={HeaderTitle}>
                             <Link to={{ pathname: company ? `/company/${company.id}` : `/`, services: services, company: company }}><ArrowLeftOutlined/></Link>
-                            <span>&nbsp;&nbsp;PRO Plan</span>
                         </div>
-                        {/* <img className={ProductImage} src={proplan} alt="product"/> */}
-                        <SubscriptionCard id="5"/>
+                        {!loading && <SubscriptionCard id={5} title={plan.name} price={plan.price} durationType={plan.durationType} />}
                     </div>
                     <div className={DetailsContainer}>
                         <div className={Title}>Details</div>
@@ -35,12 +41,12 @@ const Product = () => {
                             <>
                                 <List
                                     className={DetailsList}
-                                    dataSource={planDesc}
-                                    renderItem={(plan) => (
+                                    dataSource={plan.description}
+                                    renderItem={(item) => (
                                     <List.Item style={{borderBottom: "0px"}}>
                                         <div>
                                             <CheckOutlined className={CheckStyle}/>
-                                            <span>{plan.description}</span>
+                                            <span>{item}</span>
                                         </div>
                                     </List.Item>
                                     )}
@@ -48,48 +54,9 @@ const Product = () => {
 
                                 <div className={ButtonContainer}>
                                     <div className={BuyButton} onClick={setPaymentPop}>
-                                        Buy Hourly Plan ($1.50/hour)
-                                    </div>
-                                    <div className={BuyButton}>
-                                        Buy Monthly Plan ($69/month)
+                                        Buy Now ($ {plan.price}/{duration})
                                     </div>
                                 </div>
-
-                                <Modal title="Payment Confirmation"
-                                    centered
-                                    visible={paymentPop}
-                                    onCancel={() => setPaymentPop(false)}
-                                    onOk={() => setPaymentPop(false)}
-                                    okText="Purchase ($1.00)"
-                                    style={{padding: "15px"}}
-                                    >
-                                    <SubscriptionCard id="5"/>
-                                    <div className={PaymentContainer}>
-                                        <div className={PaymentData}>
-                                            <div>Plan name</div>
-                                            <div><strong>Power Plan</strong></div>
-                                        </div>
-                                        <div className={PaymentData}>
-                                            <div>Subscription period</div>
-                                            <div><strong>1 hour(s)</strong></div>
-                                        </div>
-                                        <div className={PaymentData}>
-                                            <div>Subscription fee</div>
-                                            <div><strong>$1.50</strong></div>
-                                        </div>
-                                        <div className={PaymentData}>
-                                            <div>Discounts</div>
-                                            <div><strong>-$0.50</strong></div>
-                                        </div>
-                                        <div className={PromoCodeInput}>
-                                            <Search placeholder="Enter promo code" />
-                                        </div>
-                                        <div className={TotalPayment}>
-                                            <div>Total payment</div>
-                                            <div style={{color: '#404EFB', fontSize:'20px'}}><strong>$1.00</strong></div>
-                                        </div>
-                                    </div>
-                                </Modal>
                             </>
                         )}
                         
@@ -99,6 +66,8 @@ const Product = () => {
                     </div>
                 </Col>
             </Row>
+
+            {!loading && <PaymentModal visible={paymentPop} setVisible={setPaymentPop} plan={plan} duration={duration} />}
         </>
     )
 }

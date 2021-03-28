@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ServiceEndpoint, CompanyEndpoint, ProductEndpoint, UserEndpoint } from './../constants/endpoint'
 
 const useCustomFetcher = ({ resourceURL = {}, header = {} }) => {
   const [result, setResult] = useState({ loading: true, returnData: null });
@@ -60,7 +61,7 @@ export const useFetchNews = query => {
 };
 
 export const useFetchServiceData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/service`);
+  const resourceURL = new URL(ServiceEndpoint(service));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];
@@ -89,8 +90,8 @@ export const useFetchServiceData = service => {
   };
 };
 
-export const useFetchCompanyData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/company`);
+export const useFetchCompanyData = company => {
+  const resourceURL = new URL(CompanyEndpoint(company));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];
@@ -119,8 +120,8 @@ export const useFetchCompanyData = service => {
   };
 };
 
-export const useFetchProductData = service => {
-  const resourceURL = new URL(`https://netxis-server.azurewebsites.net/${service}/product`);
+export const useFetchProductData = product => {
+  const resourceURL = new URL(ProductEndpoint(product));
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
 
   if (!loading) { const success = returnData.success || [];
@@ -149,3 +150,32 @@ export const useFetchProductData = service => {
   };
 };
 
+export const useFetchUserData = userID => {
+  const resourceURL = new URL(UserEndpoint(userID));
+  const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
+
+  if (!loading) { const success = returnData.success || [];
+    if (!success) {
+      const errorAPI = returnData.messageError[0] || ``;
+      console.error(errorAPI);
+
+      return {
+        loading,
+        isError: true,
+        messageError: errorAPI,
+      };
+    }
+
+    const { data } = returnData || {};
+    const { user } = data || {};
+
+    return {
+      response: user[0],
+      loading,
+    };
+  }
+
+  return {
+    loading,
+  };
+};

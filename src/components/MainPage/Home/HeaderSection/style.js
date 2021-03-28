@@ -10,7 +10,7 @@ export const Header = css`
 export const Icon = css`
   margin-left: 32px;
   font-size: 24px;
-  color: ${N0};
+  color: #1E1E3F;
 `;
 
 export const RotateIcon = css`

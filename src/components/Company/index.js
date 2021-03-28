@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Tabs, Skeleton } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { useParams, Link, useHistory } from 'react-router-dom';
@@ -16,7 +16,16 @@ const Company = () => {
     const { companyID } = useParams();
     const { services, company } = location;
     const { loading, response: productList } = useFetchCompanyData(companyID);
+    const [products, setProducts] = useState([]);
+    const [subscriptions, setSubscriptions] = useState([]);
 
+    useEffect(() => {
+        if (!loading) {
+            setSubscriptions(productList.filter(element => element.type === 1));
+            setProducts(productList.filter(element => element.type === 2));
+        }
+    }, [loading, productList]);
+    
     return (
         <>
             <Row justify="center">
@@ -30,28 +39,46 @@ const Company = () => {
                     <div className={ProfileContainer}>
                         <img className={CompanyLogo} src={company.logo} width="100%" alt="logo"/>
                         <div className={CompanyName}>{company.name}</div>
-                        <div className={CompanyType}>{capitalize(services)}</div>
+                        <div className={CompanyType}>{capitalize(services).replace('_', ' ')}</div>
                     </div>
 
                     <div className={ItemContainer}>
-                        <Tabs defaultActiveKey="1" centered size="large">
-                            <TabPane tab="Subscriptions" key="1">
-                                {!loading && (
-                                    <>
-                                        <Link to={{pathname: `/product/1`, company: company, services: services}}>
-                                            <SubscriptionCard id="5"/>                                        
-                                        </Link>
-                                    </>
-                                )}
+                        <Tabs defaultActiveKey={subscriptions.length > 0 ? "1" : "2"} centered size="large">
 
-                                {loading && skeleton.map((_, index) => (
-                                    <Skeleton active key={index} />
-                                ))}
-                            </TabPane>
-                            <TabPane tab="Products" key="2">
-                                <SubscriptionCard id="4"/>
-                                <SubscriptionCard id="5"/>
-                            </TabPane>
+                            {subscriptions.length > 0 && (
+                                <TabPane tab="Subscriptions" key="1">
+                                    {!loading && subscriptions.map(product => (
+                                        <div key={product.id}>
+                                            <div key={product.id}>
+                                                <Link to={{pathname: `/product/${product.id}`, company: company, services: services}}>
+                                                    <SubscriptionCard id={product.id} title={product.name} price={product.price} durationType={product.duration_type} />                                        
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                    {loading && skeleton.map((_, index) => (
+                                        <Skeleton active key={index} />
+                                    ))}
+                                </TabPane>
+                            )}
+                            {products.length > 0 && (
+                                <TabPane tab="Products" key="2">
+                                    {!loading && products.map(product => (
+                                        <div key={product.id}>
+                                            <div key={product.id}>
+                                                <Link to={{pathname: `/product/${product.id}`, company: company, services: services}}>
+                                                    <SubscriptionCard id={product.id} title={product.name} price={product.price} durationType={product.duration_type} />                                        
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                    {loading && skeleton.map((_, index) => (
+                                        <Skeleton active key={index} />
+                                    ))}
+                                </TabPane>
+                            )}
                         </Tabs>
                     </div>
                 </div>

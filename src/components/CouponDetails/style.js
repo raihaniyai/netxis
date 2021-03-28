@@ -30,12 +30,10 @@ export const Title = css`
 export const DetailsContainer = css`
   padding: 3% 5% 0% 5%;
   width: 100%;
-  // height: 100%;
   background: #FFFFFF;
   margin: 0 0 50px 0;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
 `;
 
 export const DetailsList = css`
@@ -63,10 +61,6 @@ export const BuyButton = css`
   text-align: center;
   padding: 20px;
   margin-bottom: 15px;
-  &:hover {
-    background: #404EFB;
-    color: #FFFFFF;
-  }
 `;
 
 export const ProductImage = css`
@@ -79,26 +73,10 @@ export const CheckStyle = css`
   margin-right: 12px;
 `;
 
-export const PaymentContainer = css`
-  margin-top: 15px;
-  color: #1E1E3F;
-`;
-
-export const PaymentData = css`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-`;
-
 export const TotalPayment = css`
   padding-top: 25px;
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #F4F4F4;
   color: #1E1E3F;
-`;
-
-export const PromoCodeInput = css`
-  text-align: right;
-  margin: 15px 0px;
 `;
