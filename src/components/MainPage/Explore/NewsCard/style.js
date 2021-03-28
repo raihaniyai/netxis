@@ -11,17 +11,6 @@ export const Card = css`
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 `;
-// .card {
-//     width: -webkit-fill-available;
-//     background: #FFFFFF;
-//     border-radius: 20px;
-//     margin: 15px 0;
-//     display: inline-block;
-//     padding: 10px;
-//     padding-bottom: 23px;
-//     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-//     cursor: pointer;
-// }
 
 export const CardContent = css`
     background: #FFFFFF;
@@ -30,23 +19,6 @@ export const CardContent = css`
     display: flex;
     align-items: center;
 `;
-
-// .card .content {
-//     background: #FFFFFF;
-//     margin: 10px;
-//     padding: 5px;
-//     display: flex;
-//     align-items: center;
-// }
-
-
-// .card .content:last-child{
-//     margin-bottom: 0;
-// }
-
-// .card .content .image{
-//     margin-right: 25px;
-// }
 
 export const Name = css`
     font-weight: 600;
@@ -70,22 +42,4 @@ export const Date = css`
     font-weight: 500;
     color: #1E1E3F;
 `;
-
-// .content .address{
-//     margin: 2px 0;
-//     font-size: 13px;
-//     line-height: 22px;
-//     font-weight: 300;
-//     color: #1E1E3F;
-// }
-
-// .content .region{
-//     margin: 2px 0;
-//     font-size: 13px;
-//     font-style: italic;
-//     line-height: 22px;
-//     font-weight: 500;
-//     color: #1E1E3F;
-// }
-
 

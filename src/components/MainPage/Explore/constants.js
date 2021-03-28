@@ -22,7 +22,7 @@ export const CategoryList = [
   {
     id: 5,
     label: '🚗 Automotive',
-    query: 'self+drive'
+    query: 'vehicle'
   }
 ]
 
