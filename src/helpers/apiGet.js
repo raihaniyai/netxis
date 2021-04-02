@@ -34,7 +34,7 @@ export const useFetchNews = query => {
 
   const header = {
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': 'dafbed6cba354bbfaccbbdf784025a70'
+    'Ocp-Apim-Subscription-Key': ''
   }
   const { returnData = {}, loading } = useCustomFetcher({ resourceURL, header });
   // const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
