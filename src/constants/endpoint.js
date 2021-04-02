@@ -5,3 +5,5 @@ export const UserEndpoint = params => `https://netxis-server.azurewebsites.net/$
 export const NewsEndpoint = params => `localhost:5000/${params}/news`;
 export const OrderEndpoint = params => `https://netxis-server.azurewebsites.net/${params}/order`;
 export const CouponPlanEndpoint = (userID, planID) => `https://netxis-server.azurewebsites.net/${userID}/${planID}/coupon_plan`;
+export const GachaEndpoint = params => `https://netxis-server.azurewebsites.net/${params}/gacha`;
+export const CouponEndpoint = params => `https://netxis-server.azurewebsites.net/${params}/my_coupon`;

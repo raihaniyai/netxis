@@ -7,14 +7,28 @@ import { useFetchUserData } from '../../../helpers/apiGet';
 import { Background, BackgroundContainer, Container, HeaderBox } from './style';
 import GachaButton from './GachaButton';
 import SubscriptionCard from '../../SubscriptionCard';
+import { usePostGacha } from '../../../helpers/apiPost';
+import CouponCard from '../../CouponCard';
 
 const Home = () => {
   const { loading, response: userData } = useFetchUserData(1);
+  const { loading: loadingGacha, gachaData, postGacha } = usePostGacha(1);
   const { setActiveMenu } = useContext(GlobalContext);
   const [gachaPop, setGachaPop] = useState(false);
+  const [gachaDetails, setGachaDetails] = useState({});
+
 
   const onClickGacha = () => {
-    setGachaPop(true);
+    postGacha(1);
+    if (!loadingGacha) {
+      setGachaDetails(gachaData);
+      setGachaPop(true);
+    }
+  }
+
+  const onCloseGacha = () => {
+    setGachaDetails({});
+    setGachaPop(false);
   }
 
   return (
@@ -25,18 +39,23 @@ const Home = () => {
       <div className={Container}>
         <HeaderSection user={userData} loading={loading} />
         <BodySection />
-        <GachaButton onClickGacha={onClickGacha}/>
+        {/* { !loading && userData.gacha && (<GachaButton onClickGacha={onClickGacha}/>) } */}
+        { !loading && (<GachaButton onClickGacha={onClickGacha}/>) }
+        {console.log(userData)}
         <Modal title="Daily Gacha"
           centered
           visible={gachaPop}
-          onCancel={() => setGachaPop(false)}
+          onCancel={onCloseGacha}
           cancelText="Close"
           onOk={() => setActiveMenu(2)}
           okText="Go to Coupons"
           style={{padding: "15px"}}
         >
           <div style={{textAlign: 'center'}}>Congratulations! You received: </div>
-          <SubscriptionCard id="5" />
+          {/* <SubscriptionCard id={gachaData.deal_id} title={gachaData.name} price="$0" durationType="1"/> */}
+          {
+            !loadingGacha && (<CouponCard name={gachaDetails.name} thumbnail={gachaDetails.img}/>)
+          } 
         </Modal>
       </div>
     </div>
