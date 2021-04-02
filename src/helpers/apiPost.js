@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UserEndpoint, OrderEndpoint } from './../constants/endpoint';
+import { UserEndpoint, OrderEndpoint, GachaEndpoint } from './../constants/endpoint';
 
 const useCustomPoster = () => {
   const [result, setResult] = useState({ loading: true, returnData: {} });
@@ -93,5 +93,38 @@ export const usePostOrder = () => {
     isError,
     messageError,
     postOrder,
+  };
+};
+
+export const usePostGacha = () => {
+  const { result, postFetcher } = useCustomPoster();
+  const { loading, returnData } = result;
+  let isSuccess = false;
+  let isError = false;
+  let messageError = '';
+  let gachaData = {};
+
+  // const params = 1;
+
+  const postGacha = () => {
+    const resourceURL = new URL(GachaEndpoint(1));
+    postFetcher({ resourceURL, params: JSON.stringify({}) });
+  };
+
+  if (!loading) {
+    if (!returnData?.success) {
+      isError = !returnData?.success;
+      messageError = "An error has occured";
+    } else {
+      const { data } = returnData || {};
+      gachaData = data.gachaResult || 0;
+      isSuccess = returnData?.success;
+    }
+  }
+
+  return {
+    gachaData,
+    loading,
+    postGacha
   };
 };

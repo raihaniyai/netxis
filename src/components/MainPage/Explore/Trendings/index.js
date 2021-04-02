@@ -1,6 +1,5 @@
 import React from 'react';
 import { List } from 'antd';
-import { TempTrending } from './../constants';
 import { Title } from './../style'
 import { TrendingWrapper, ListStyle, TrendingOrder } from'./style';
 
