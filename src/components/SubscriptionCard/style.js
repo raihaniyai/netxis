@@ -32,35 +32,17 @@ export const CardContainer = css`
 `;
 
 export const CardTitle = css`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-40%, -40%);
-  font-family: Racing Sans One;
-  font-size: 240%;
-  width: 90%;
-  text-align: left;
-`;
-
-export const CardTitle1 = css`
   font-family: Racing Sans One;
   font-size: 1.5rem;
   width: 90%;
   text-align: left;
-`;
-
-export const CardSubtitle1 = css`
-  font-size: 0.8rem;
-  width: 90%;
-  text-align: left;
+  @media (max-width: 360px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const CardSubtitle = css`
-  position: absolute;
-  top: 63%;
-  left: 50%;
-  transform: translate(-40%, -40%);
-  font-size: 130%;
+  font-size: 0.8rem;
   width: 90%;
   text-align: left;
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContainer, CardSubtitle1, CardTitle1, TextContainer, Background } from './style';
+import { CardContainer, CardSubtitle, CardTitle, TextContainer, Background } from './style';
 
 const SubscriptionCard = ({ id, title, price, durationType }) => {
     let duration;
@@ -15,8 +15,8 @@ const SubscriptionCard = ({ id, title, price, durationType }) => {
             <div className={CardContainer}>
                 <img className={Background} src={`../../images/plan-${id % 3}.svg`} alt=""/>
                 <div className={TextContainer}>
-                    <div className={CardTitle1}>{title}</div>
-                    <div className={CardSubtitle1}>{subtitle}</div>
+                    <div className={CardTitle}>{title}</div>
+                    <div className={CardSubtitle}>{subtitle}</div>
                 </div>
             </div>
         </div>
