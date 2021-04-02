@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ServiceEndpoint, CompanyEndpoint, ProductEndpoint, UserEndpoint, NewsEndpoint } from './../constants/endpoint'
+import { ServiceEndpoint, CompanyEndpoint, ProductEndpoint, UserEndpoint, NewsEndpoint, CouponPlanEndpoint } from './../constants/endpoint'
 
 const useCustomFetcher = ({ resourceURL = {}, header = {} }) => {
   const [result, setResult] = useState({ loading: true, returnData: null });
@@ -177,6 +177,36 @@ export const useFetchUserData = userID => {
 
     return {
       response: user[0],
+      loading,
+    };
+  }
+
+  return {
+    loading,
+  };
+};
+
+export const useFetchCouponPlan = (userID, planID) => {
+  const resourceURL = new URL(CouponPlanEndpoint(userID, planID));
+  const { returnData = {}, loading } = useCustomFetcher({ resourceURL });
+
+  if (!loading) { const success = returnData.success || [];
+    if (!success) {
+      const errorAPI = returnData.messageError[0] || ``;
+      console.error(errorAPI);
+
+      return {
+        loading,
+        isError: true,
+        messageError: errorAPI,
+      };
+    }
+
+    const { data } = returnData || {};
+    const { coupons } = data || {};
+
+    return {
+      coupons,
       loading,
     };
   }

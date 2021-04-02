@@ -97,8 +97,3 @@ export const TotalPayment = css`
   border-top: 1px solid #F4F4F4;
   color: #1E1E3F;
 `;
-
-export const PromoCodeInput = css`
-  text-align: right;
-  margin: 15px 0px;
-`;
