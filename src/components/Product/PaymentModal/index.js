@@ -1,16 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Modal, Input } from 'antd';
+import { Modal, Input, Select } from 'antd';
 import SubscriptionCard from '../../SubscriptionCard';
 import { useHistory } from 'react-router-dom';
 import { usePostOrder } from '../../../helpers/apiPost';
-import { PaymentContainer, PaymentData, PromoCodeInput, TotalPayment } from './../style';
+import { useFetchCouponPlan } from '../../../helpers/apiGet';
+import { PaymentContainer, PaymentData, TotalPayment } from './../style';
 
-const { Search } = Input;
+const { Option } = Select;
 
 const PaymentModal = ({ visible, setVisible, plan, duration }) => {
   const { replace } = useHistory();
   const totalPrice = plan.price;
   const [discountPrice, setDiscountPrice] = useState(0);
+  const { loadingCoupon, isErrorCoupon, coupons } = useFetchCouponPlan(1, plan.id)
   const { postOrder, isSuccess, isError, loading, messageError } = usePostOrder();
 
   const handlePayment = useCallback(() => {
@@ -42,7 +44,19 @@ const PaymentModal = ({ visible, setVisible, plan, duration }) => {
         content: messageError
       });
     }
-  }, [loading, isSuccess, isError, messageError, replace])
+  }, [loading, isSuccess, isError, messageError, replace]);
+
+  useEffect(() => {
+    if (isErrorCoupon) {
+      Modal.error({
+        title: "Error",
+        content: "An Error has occured",
+        onOk: () => {
+          replace(`/`);
+        }
+      });
+    }
+  }, [loadingCoupon, isErrorCoupon])
 
   return (
     <Modal
@@ -84,8 +98,32 @@ const PaymentModal = ({ visible, setVisible, plan, duration }) => {
           </div>
         </div>
 
-        <div className={PromoCodeInput}>
-          <Search placeholder="Enter promo code" />
+        <div className={PaymentData}>
+          <div>Promo Code</div>
+
+          {!loadingCoupon && (
+            <Select
+              showSearch
+              style={{ width: 200 }}
+              placeholder="Enter promo code"
+              optionFilterProp="children"
+              dropdownStyle={{minWidth: '150px'}}
+              filterOption={(input, option) =>
+                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+              filterSort={(optionA, optionB) =>
+                optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
+              }
+              onChange={value => {
+                const found = coupons.find(element => element.promo_code === value);
+                setDiscountPrice(found.discount_price)
+              }}
+            >
+              {coupons?.map((coupon, index) => (
+                <Option value={coupon.promo_code} key={index}>{coupon.deal_name}</Option>
+              ))}
+            </Select>
+          )}
         </div>
 
         <div className={TotalPayment}>
