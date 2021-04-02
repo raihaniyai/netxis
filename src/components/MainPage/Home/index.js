@@ -15,6 +15,7 @@ const Home = () => {
   const { loading: loadingGacha, gachaData, postGacha } = usePostGacha(1);
   const { setActiveMenu } = useContext(GlobalContext);
   const [gachaPop, setGachaPop] = useState(false);
+  const [gachaOpened, setGachaOpened] = useState(false);
   const [gachaDetails, setGachaDetails] = useState({});
 
 
@@ -23,6 +24,7 @@ const Home = () => {
     if (!loadingGacha) {
       setGachaDetails(gachaData);
       setGachaPop(true);
+      setGachaOpened(true);
     }
   }
 
@@ -39,9 +41,7 @@ const Home = () => {
       <div className={Container}>
         <HeaderSection user={userData} loading={loading} />
         <BodySection />
-        {/* { !loading && userData.gacha && (<GachaButton onClickGacha={onClickGacha}/>) } */}
-        { !loading && (<GachaButton onClickGacha={onClickGacha}/>) }
-        {console.log(userData)}
+        { !loading && userData.gacha && !gachaOpened && (<GachaButton onClickGacha={onClickGacha}/>) }
         <Modal title="Daily Gacha"
           centered
           visible={gachaPop}

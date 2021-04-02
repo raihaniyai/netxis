@@ -104,6 +104,7 @@ const PaymentModal = ({ visible, setVisible, plan, duration }) => {
           {!loadingCoupon && (
             <Select
               showSearch
+              allowClear
               style={{ width: 200 }}
               placeholder="Enter promo code"
               optionFilterProp="children"
